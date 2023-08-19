@@ -1,23 +1,22 @@
 import React, { useState, useEffect, useRef } from "react";
-import axios from "axios";
+//import axios from "axios";
 import { CoinsMarkets } from "../api/CoinsMarkets";
 
 const List = () => {
-  const [coins, setCoins] = useState(CoinsMarkets);
+  const [coins, setCoins] = useState([]);
   const [search, setSearch] = useState("");
   const inputRef = useRef();
 
   const getData = async () => {
-    const url =
-      "https://api.coingecko.com/api/v3/coins/markets?vs_currency=USD&order=market_cap_desc&per_page=100&page=1";
+    //const url = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=USD&order=market_cap_desc&per_page=100&page=1";
 
     //const response = await axios.get(url2);
-    //setCoins(CoinsMarkets);
+    setCoins(CoinsMarkets);
     //console.log(coins);
   };
 
   useEffect(() => {
-    //getData();
+    getData();
   }, []);
 
   const titles = ["#", "Coins", "Price", "Price change", "24h Volume"]; //
