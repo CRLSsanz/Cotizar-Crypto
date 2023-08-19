@@ -1,9 +1,6 @@
-import Cotizar from "./components/Cotizar";
 import Navbar from "./components/Navbar";
-import TableCoins from "./components/List";
 import Main from "./pages/Main";
-const fondoPanal =
-  "https://raw.githubusercontent.com/CRLSsanz/trade/main/panal1.jpg";
+//const fondoPanal = "https://raw.githubusercontent.com/CRLSsanz/trade/main/panal1.jpg";
 
 function App() {
   return (

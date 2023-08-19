@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { CoinsMarkets } from "../api/CoinsMarkets";
 
 const List = () => {
   const [coins, setCoins] = useState(CoinsMarkets);
   const [search, setSearch] = useState("");
+  const inputRef = useRef();
 
   const getData = async () => {
     const url =
@@ -58,10 +59,17 @@ const List = () => {
     );
   };
 
+  const clearInput = () => {
+    setSearch("");
+    inputRef.current.value = "";
+    inputRef.current.focus();
+  };
+
   return (
     <div className="w-full min-h-[calc(100vh-80px)] px-4">
       <div className="w-full mb-4">
         <input
+          ref={inputRef}
           type="text"
           className="w-3/4 p-2 bg-gray-800 rounded-l-md text-center mb-2 border border-gray-500
           focus:outline-none focus:border-orange-500 "
@@ -70,7 +78,8 @@ const List = () => {
         />
         <button
           className="w-1/4 p-2 rounded-r-md bg-[#ff5709b6] border border-orange-500"
-          onClick={() => setSearch("")}
+          //onClick={() => setSearch("") & (inputRef.current.value = "")}
+          onClick={clearInput}
         >
           Clear
         </button>

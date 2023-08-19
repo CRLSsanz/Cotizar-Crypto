@@ -16,12 +16,12 @@ const Main = () => {
 
       <section
         id="section2"
-        className="min-h-[700px] bg-[#1A2035] flex"
+        className="min-h-screen bg-[#1A2035] flex"
         style={{
           backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(${fondoPanal})`,
           backgroundPosition: "50%",
           backgroundSize: "cover",
-          //backgroundAttachment: "fixed",
+          backgroundAttachment: "fixed",
         }}
       >
         <div className="my-auto w-full px-2">

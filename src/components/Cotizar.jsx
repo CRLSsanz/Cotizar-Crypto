@@ -84,9 +84,12 @@ const Cotizar = () => {
 
       <button
         onClick={handleSubmit}
-        className="p-2 w-full md:w-4/6 flex mx-auto justify-center bg-blue-500/40 rounded-full my-3 uppercase text-sm font-medium tracking-widest shadow-md shadow-blue-500"
+        className="p-0.5 w-full md:w-4/6 flex mx-auto justify-center bg-gradient-to-l from-purple-400 to-blue-500 rounded-full my-3 uppercase text-sm font-medium tracking-widest
+        focus:ring-2 focus:outline-none focus:ring-blue-400"
       >
-        Cotizar
+        <span className="p-2 bg-gray-800 w-full rounded-full text-white transition-all ease-in duration-75 hover:bg-opacity-0">
+          Cotizar
+        </span>
       </button>
 
       <div className="p-4 w-full text-sm flex flex-col bg-[#75757550] rounded-sm my-3 ">

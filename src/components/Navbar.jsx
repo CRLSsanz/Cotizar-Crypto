@@ -8,6 +8,7 @@ const Navbar = () => {
 
   return (
     <div className="w-full">
+      {/** NAVBAR */}
       <nav className="w-full h-16 px-2 lg:px-24 flex justify-between items-center bg-gradient-to-bl from-cyan-800 backdrop-blur-2xl">
         {/* 
        <div className="relative ml-4">
@@ -28,19 +29,14 @@ const Navbar = () => {
           </select>
        </div>
          */}
-        <a
-          href="#section1"
-          className="hidden px-4 text-lg text-gray-100 font-semibold"
-        >
-          C R L S
-        </a>
+
         <button
           onClick={() => setNavbar(!navbar)}
           className="px-4 active:bg-none active:bg-transparent active:animate-ping focus:outline-none"
         >
           {navbar ? (
             <svg
-              width="35px"
+              width="25px"
               viewBox="0 0 24 24"
               //fill="#aaa"
               fill="#ddd"
@@ -50,7 +46,7 @@ const Navbar = () => {
             </svg>
           ) : (
             <svg
-              width="35px"
+              width="25px"
               viewBox="0 0 24 24"
               fill="#ddd"
               xmlns="http://www.w3.org/2000/svg"
@@ -62,6 +58,40 @@ const Navbar = () => {
             </svg>
           )}
         </button>
+
+        <span className="px-4 text-lg font-extralight text-gray-100">
+          C r y p t o
+        </span>
+
+        <a
+          href="#section3"
+          onClick={() => setNavbar(false)}
+          className="px-4 active:bg-none active:bg-transparent active:animate-ping focus:outline-none"
+        >
+          <svg
+            width="25px"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M5.5 10.7655C5.50003 8.01511 7.44296 5.64777 10.1405 5.1113C12.8381 4.57483 15.539 6.01866 16.5913 8.55977C17.6437 11.1009 16.7544 14.0315 14.4674 15.5593C12.1804 17.0871 9.13257 16.7866 7.188 14.8415C6.10716 13.7604 5.49998 12.2942 5.5 10.7655Z"
+              stroke="#ddd"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></path>
+            <path
+              d="M17.029 16.5295L19.5 19.0005"
+              stroke="#ddd"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></path>
+          </svg>
+        </a>
       </nav>
       {/** FONDO NEGRO */}
       <div
