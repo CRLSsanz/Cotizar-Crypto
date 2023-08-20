@@ -10,16 +10,17 @@ const getMoneda = [
 ];
 
 const initialShow = {
-  PRICE: "$ 0.00",
-  HIGHDAY: "$ 0",
-  LOWDAY: "$ 0",
-  CHANGEPCT24HOUR: "1",
+  PRICE: " 0.00",
+  HIGHDAY: " 0",
+  LOWDAY: " 0",
+  CHANGEPCT24HOUR: "-",
   LASTUPDATE: "-",
 };
 const Cotizar = () => {
   const [coint, setCoint] = useState([]);
   const [moneda, setMoneda] = useState("");
   const [cryptomoneda, setCryptomoneda] = useState("");
+  const [error, setError] = useState(false);
   const [show, setShow] = useState(initialShow);
 
   useEffect(() => {
@@ -37,22 +38,39 @@ const Cotizar = () => {
   const handleSubmit = async () => {
     //alert("enviando");
     //console.log(moneda + cryptomoneda);
-
+    if (cryptomoneda === "" || moneda === "") {
+      setError(true);
+      return;
+    }
     const response = await axios.get(
       `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${cryptomoneda}&tsyms=${moneda}`
     );
 
     setShow(response.data.DISPLAY[cryptomoneda][moneda]);
     //console.log(show);
+    setError(false);
   };
+
+  let messageError = "Selecciona ambas monedas";
+  if (error) {
+    messageError = "Selecciona ambas monedas";
+    setTimeout(() => {
+      setShow(initialShow);
+      setError(false);
+    }, 3000);
+  } else {
+    messageError = "";
+  }
 
   return (
     <div className="p-4 w-full flex flex-col mb-10 ">
-      <div className="uppercase py-2 text-blue-500 text-3xl font-semibold mb-3">
+      <div className="uppercase py-2 text-blue-500 text-3xl mb-3">
         Cotizador de Cryptomonedas
       </div>
 
-      <h1 className="uppercase text-sm py-2 font-semibold">Your Moneda</h1>
+      <h1 className="uppercase text-sm py-2 font-medium text-gray-50">
+        Your Moneda
+      </h1>
 
       <select
         className="py-2 px-4 shadow-md rounded-sm mb-3 bg-[#75757530] border border-gray-500 focus:outline-none focus:bg-gray-800 focus:ring-orange-500 focus:border-purple-500 "
@@ -66,7 +84,7 @@ const Cotizar = () => {
         ))}
       </select>
 
-      <h1 className="uppercase text-sm py-2 font-semibold">
+      <h1 className="uppercase text-sm py-2 font-medium text-gray-50">
         Your Cryptomoneda
       </h1>
 
@@ -82,9 +100,16 @@ const Cotizar = () => {
         ))}
       </select>
 
+      {error ? (
+        <div className="w-full text-red-400 font-semibold text-center p-2">
+          {messageError}
+        </div>
+      ) : (
+        <div> </div>
+      )}
       <button
         onClick={handleSubmit}
-        className="p-0.5 w-full md:w-4/6 flex mx-auto justify-center bg-gradient-to-l from-purple-400 to-blue-500 rounded-full my-3 uppercase text-sm font-medium tracking-widest
+        className="p-0.5 w-full md:w-4/6 flex mx-auto justify-center bg-gradient-to-l from-purple-400 to-blue-500 rounded-full my-3 uppercase text-sm font-normal tracking-widest
         focus:ring-2 focus:outline-none focus:ring-blue-400"
       >
         <span className="p-2 bg-gray-800 w-full rounded-full text-white transition-all ease-in duration-75 hover:bg-opacity-0">
@@ -114,8 +139,8 @@ const Cotizar = () => {
         <h1 className="flex flex-row justify-between">
           Variacion ultimas 24 horas :
           <span
-            className={`text-number font-medium text-white   
-          ${show.CHANGEPCT24HOUR > 0 ? " text-green-500 " : " text-red-500 "}`}
+            className={`text-number font-medium    
+          ${show.CHANGEPCT24HOUR > 0 ? " text-green-500 " : " text-red-400 "}`}
           >
             {show.CHANGEPCT24HOUR} %
           </span>

@@ -2,14 +2,28 @@ import React from "react";
 import Home from "../components/Home";
 import Cotizar from "../components/Cotizar";
 import List from "../components/List";
-const fondoPanal =
-  "https://raw.githubusercontent.com/CRLSsanz/trade/main/panal1.jpg";
+
+//const fondoPanal = "https://raw.githubusercontent.com/CRLSsanz/trade/main/panal1.jpg";
+//const fondogirl = "https://img.freepik.com/foto-gratis/hermoso-concepto-criptomoneda_23-2149250215.jpg?w=970";
+const fondoCripto =
+  "https://media.istockphoto.com/id/1312767508/es/foto/hombre-de-negocios-que-utiliza-la-banca-en-l%C3%ADnea-de-tabletas-moneda-de-cambio-y-pago-marketing.jpg?b=1&s=612x612&w=0&k=20&c=ZnHwPIBdCT_HT4UmO2TuKhzwiuT6piICZ6zRc4ssapQ=";
+const fondo2 =
+  "https://c4.wallpaperflare.com/wallpaper/445/808/986/bitcoin-cash-coins-computer-wallpaper-preview.jpg";
 
 const Main = () => {
   return (
     <div>
-      <section id="section1" className="min-h-screen bg-[#1A2035] flex">
-        <div className="my-auto px-2">
+      <section
+        id="section1"
+        className="min-h-[calc(100vh-0px)] bg-[#1A2035]"
+        style={{
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url(${fondo2})`,
+          backgroundPosition: "50%",
+          backgroundSize: "cover",
+          backgroundAttachment: "fixed",
+        }}
+      >
+        <div className="w-full h-screen">
           <Home />
         </div>
       </section>
@@ -18,10 +32,10 @@ const Main = () => {
         id="section2"
         className="min-h-screen bg-[#1A2035] flex"
         style={{
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(${fondoPanal})`,
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(${fondoCripto})`,
           backgroundPosition: "50%",
           backgroundSize: "cover",
-          backgroundAttachment: "fixed",
+          //backgroundAttachment: "fixed",
         }}
       >
         <div className="my-auto w-full px-2">
@@ -36,6 +50,11 @@ const Main = () => {
           <List />
         </div>
       </section>
+
+      {/* FOOTER */}
+      <p className="hidden w-full bg-[#1A2035] text-xs text-center py-2">
+        All Rights Reserved <span className="font-numero">© 2023 </span>
+      </p>
     </div>
   );
 };
