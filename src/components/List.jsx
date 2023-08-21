@@ -65,7 +65,8 @@ const List = () => {
   };
 
   return (
-    <div className="w-full min-h-[calc(100vh-80px)] px-4">
+    <div className="w-full md:w-[600px] lg:w-[768px] mx-auto min-h-[calc(100vh-80px)] px-4">
+      <h1 className="text-2xl text-center mb-4">List by Market</h1>
       <div className="w-full mb-4">
         <input
           ref={inputRef}
@@ -84,7 +85,7 @@ const List = () => {
         </button>
       </div>
 
-      <div className="w-full max-h-[calc(100vh-170px)] rounded-md overflow-scroll">
+      <div className="w-full max-h-[calc(100vh-210px)] rounded-md overflow-scroll lg:overflow-x-hidden">
         <table className="w-full bg-gray-800 text-gray-200">
           <thead className="sticky -top-0.5 bg-gray-900">
             <tr className="text-white text-center">

@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 const getMoneda = [
+  { name: "American dollar", moneda: "USD" },
+  { name: "Euro", moneda: "EUR" },
   { name: "Argentine Peso", moneda: "ARS" },
   { name: "Colombian Peso", moneda: "COP" },
-  { name: "Dolar Estadounidense", moneda: "USD" },
-  { name: "Euro", moneda: "EUR" },
   { name: "Mexican Peso", moneda: "MXN" },
 ];
 
@@ -53,7 +53,7 @@ const Cotizar = () => {
 
   let messageError = "Selecciona ambas monedas";
   if (error) {
-    messageError = "Selecciona ambas monedas";
+    messageError = "Select both currencies";
     setTimeout(() => {
       setShow(initialShow);
       setError(false);
@@ -63,9 +63,9 @@ const Cotizar = () => {
   }
 
   return (
-    <div className="p-4 w-full flex flex-col mb-10 ">
-      <div className="uppercase py-2 text-blue-500 text-3xl mb-3">
-        Cotizador de Cryptomonedas
+    <div className="p-4 w-full md:w-[600px] md:mx-auto flex flex-col mb-10 ">
+      <div className="uppercase text-2xl text-center mb-4">
+        Cryptocurrency <br /> quote
       </div>
 
       <h1 className="uppercase text-sm py-2 font-medium text-gray-50">
@@ -76,7 +76,7 @@ const Cotizar = () => {
         className="py-2 px-4 shadow-md rounded-sm mb-3 bg-[#75757530] border border-gray-500 focus:outline-none focus:bg-gray-800 focus:ring-orange-500 focus:border-purple-500 "
         onChange={(e) => setMoneda(e.target.value)}
       >
-        <option value="">Pulsa para seleccionar</option>
+        <option value="">Press to select</option>
         {getMoneda?.map((item, index) => (
           <option key={index} value={item.moneda}>
             {item.name}
@@ -92,7 +92,7 @@ const Cotizar = () => {
         className="py-2 px-4 shadow-md rounded-sm mb-3 bg-[#75757530] border border-gray-500 focus:outline-none focus:bg-gray-800 focus:ring-orange-500 focus:border-purple-500 "
         onChange={(e) => setCryptomoneda(e.target.value)}
       >
-        <option value="">Pulsa para seleccionar</option>
+        <option value="">Press to select</option>
         {coint?.map((item, index) => (
           <option key={index} value={item.CoinInfo.Name}>
             {item.CoinInfo.FullName}
@@ -100,44 +100,45 @@ const Cotizar = () => {
         ))}
       </select>
 
-      {error ? (
-        <div className="w-full text-red-400 font-semibold text-center p-2">
-          {messageError}
-        </div>
-      ) : (
-        <div> </div>
-      )}
       <button
         onClick={handleSubmit}
         className="p-0.5 w-full md:w-4/6 flex mx-auto justify-center bg-gradient-to-l from-purple-400 to-blue-500 rounded-full my-3 uppercase text-sm font-normal tracking-widest
         focus:ring-2 focus:outline-none focus:ring-blue-400"
       >
         <span className="p-2 bg-gray-800 w-full rounded-full text-white transition-all ease-in duration-75 hover:bg-opacity-0">
-          Cotizar
+          Quote
         </span>
       </button>
 
-      <div className="p-4 w-full text-sm flex flex-col bg-[#75757550] rounded-sm my-3 ">
+      <div className="p-4 md:px-8 w-full text-sm flex flex-col bg-[#75757550] rounded-sm my-3 ">
+        {error ? (
+          <div className="w-full p-2 bg-red-500/10 text-red-400 font-medium text-center transform transition-all duration-700">
+            {messageError}
+          </div>
+        ) : (
+          <div className=""> </div>
+        )}
+
         <h1 className="text-xl py-2 flex flex-row justify-between">
-          PRECIO:
+          PRICE:
           <span className="text-number text-white font-medium">
             {show.PRICE}
           </span>
         </h1>
         <h1 className="flex flex-row justify-between">
-          Precio mas alto del dia :
+          Highest price of the day :
           <span className="text-number text-white font-medium">
             {show.HIGHDAY}
           </span>
         </h1>
         <h1 className="flex flex-row justify-between">
-          Precio mas bajo del dia :
+          Lowest price of the day :
           <span className="text-number text-white font-medium">
             {show.LOWDAY}
           </span>
         </h1>
         <h1 className="flex flex-row justify-between">
-          Variacion ultimas 24 horas :
+          Variation last 24 hours :
           <span
             className={`text-number font-medium    
           ${show.CHANGEPCT24HOUR > 0 ? " text-green-500 " : " text-red-400 "}`}
@@ -146,7 +147,7 @@ const Cotizar = () => {
           </span>
         </h1>
         <h1 className="flex flex-row justify-between">
-          Ultima actualizacion :
+          Last update :
           <span className=" text-white font-medium">{show.LASTUPDATE}</span>
         </h1>
       </div>

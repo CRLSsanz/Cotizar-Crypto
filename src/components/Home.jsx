@@ -5,8 +5,8 @@ import criptoSimbols from "../image/cr4.png";
 const Home = () => {
   return (
     <div className="flex flex-col h-full justify-between">
-      <div className="m-auto items-center ">
-        <div className="w-full flex justify-center animate-pulse mb-10">
+      <div className="mt-auto items-center ">
+        <div className="hidden w-full flexX justify-center animate-pulse mb-10">
           <img src={crypto} alt="logo cripto" style={{ width: "80px" }} />
         </div>
         <div className="w-full text-center">
@@ -19,13 +19,13 @@ const Home = () => {
           </p>
         </div>
       </div>
-      <div className="bg-gradient-to-t from-[#010509] to-gray-800/50 h-[200px] flex flex-col items-center justify-center">
+      <div className="bg-gradient-to-t from-[#010509] to-gray-800/10 h-[200px] flex flex-col items-center justify-center">
         <img
           src={criptoSimbols}
           alt="cripto simbols"
-          style={{ width: "250px" }}
+          style={{ width: "300px" }}
         />
-        <h1 className="text-sm pt-3 tracking-widest text-cyan-500">
+        <h1 className="hidden text-sm pt-3 tracking-widest text-cyan-500">
           Bagde Set
         </h1>
       </div>

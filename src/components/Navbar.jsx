@@ -9,7 +9,7 @@ const Navbar = () => {
   return (
     <div className="w-full">
       {/** NAVBAR */}
-      <nav className="w-full h-16 px-2 lg:px-24 flex justify-between items-center bg-gradient-to-bl from-cyan-800 backdrop-blur-2xl">
+      <nav className="w-full lgX:w-[768px] h-16 px-2 lg:px-60 xl:px-96 flex justify-between items-center bg-gradient-to-bl from-cyan-800 backdrop-blur-2xl">
         {/* 
        <div className="relative ml-4">
           <img
@@ -96,7 +96,7 @@ const Navbar = () => {
       {/** FONDO NEGRO */}
       <div
         onClick={() => setNavbar(!navbar)}
-        className={`fixed top-16 w-full h-screen bg-cyan-800/80 ${
+        className={`fixed top-16 w-full h-screen bg-cyan-950/80 ${
           navbar
             ? " opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
@@ -107,7 +107,7 @@ const Navbar = () => {
       {/** MENU  */}
       <ul
         onClick={() => setNavbar(!navbar)}
-        className={`fixed z-50 flex flex-col justify-between bg-[#141414] px-8 text-center text-gray-200 w-2/3  top-16 h-[calc(100%-64px)] transform transition-all duration-700
+        className={`fixed z-50 flex flex-col justify-between bg-[#141414] px-8 text-center text-gray-200 w-2/3 md:w-1/2 lg:pl-96 top-16 h-[calc(100%-64px)] transform transition-all duration-700
         ${
           navbar
             ? " opacity-100 pointer-events-auto left-0"
@@ -124,7 +124,7 @@ const Navbar = () => {
           </a>
           <a href="#section2" onClick={() => setNavbar(!navbar)}>
             <li className="w-full border-t border-gray-800 py-4 hover:font-bold ">
-              {"Cotizar"}
+              {"Quote"}
             </li>
           </a>
           <a href="#section3" onClick={() => setNavbar(!navbar)}>
