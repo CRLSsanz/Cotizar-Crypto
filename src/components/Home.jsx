@@ -19,8 +19,9 @@ const Home = () => {
           </p>
         </div>
       </div>
-      <div className="bg-gradient-to-t from-[#010509] to-gray-800/10 h-[200px] flex flex-col items-center justify-center">
+      <div className="bg-gradient-to-t from-[#010509] to-gray-800/10 h-[200px] flex flex-col items-center justify-center ">
         <img
+          className=" opacity-70"
           src={criptoSimbols}
           alt="cripto simbols"
           style={{ width: "300px" }}

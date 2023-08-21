@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
-//import axios from "axios";
-import { CoinsMarkets } from "../api/CoinsMarkets";
+import axios from "axios";
+//import { CoinsMarkets } from "../api/CoinsMarkets";
 
 const List = () => {
   const [coins, setCoins] = useState([]);
@@ -8,10 +8,12 @@ const List = () => {
   const inputRef = useRef();
 
   const getData = async () => {
-    //const url = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=USD&order=market_cap_desc&per_page=100&page=1";
+    const url =
+      "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1";
+    const response = await axios.get(url);
 
-    //const response = await axios.get(url2);
-    setCoins(CoinsMarkets);
+    setCoins(response.data);
+    //setCoins(CoinsMarkets);
     //console.log(coins);
   };
 
@@ -41,8 +43,8 @@ const List = () => {
           <span className="px-2">{item.name}</span>
           <span className="text-gray-400 uppercase pr-3">- {item.symbol}</span>
         </td>
-        <td className="px-3 text-right whitespace-nowrap ">
-          {item.current_price.toFixed(3)} $
+        <td className="px-3 text-right whitespace-nowrap text-number">
+          $ {item.current_price}
         </td>
         <td
           className={`px-3 text-center ${
@@ -53,7 +55,9 @@ const List = () => {
         >
           {item.price_change_percentage_24h.toFixed(1)}%
         </td>
-        <td className="px-3 text-center">{item.total_volume}</td>
+        <td className="px-3 whitespace-nowrap text-center text-number">
+          {(item.total_volume / 1000000).toFixed(1)} m
+        </td>
       </tr>
     );
   };

@@ -2,18 +2,22 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 const getMoneda = [
-  { name: "American dollar", moneda: "USD" },
+  { name: "American Dollar", moneda: "USD" },
   { name: "Euro", moneda: "EUR" },
-  { name: "Argentine Peso", moneda: "ARS" },
-  { name: "Colombian Peso", moneda: "COP" },
+  { name: "Chinese Yuan", moneda: "CNY" },
+  { name: "Japanese Yen", moneda: "JPY" },
+  { name: "Pound Sterling", moneda: "GBP" },
+  { name: "Russian Ruble", moneda: "RUB" },
+  { name: "Turkish Lira", moneda: "TRY" },
   { name: "Mexican Peso", moneda: "MXN" },
+  { name: "Argentine Peso", moneda: "ARS" },
 ];
 
 const initialShow = {
-  PRICE: " 0.00",
+  PRICE: "$ 0.01",
   HIGHDAY: " 0",
   LOWDAY: " 0",
-  CHANGEPCT24HOUR: "-",
+  CHANGEPCT24HOUR: "0.01",
   LASTUPDATE: "-",
 };
 const Cotizar = () => {
@@ -69,7 +73,7 @@ const Cotizar = () => {
       </div>
 
       <h1 className="uppercase text-sm py-2 font-medium text-gray-50">
-        Your Moneda
+        Your currency
       </h1>
 
       <select
@@ -85,7 +89,7 @@ const Cotizar = () => {
       </select>
 
       <h1 className="uppercase text-sm py-2 font-medium text-gray-50">
-        Your Cryptomoneda
+        Your cryptocurrency
       </h1>
 
       <select
@@ -119,7 +123,7 @@ const Cotizar = () => {
           <div className=""> </div>
         )}
 
-        <h1 className="text-xl py-2 flex flex-row justify-between">
+        <h1 className="text-2xl py-2 flex flex-row justify-between">
           PRICE:
           <span className="text-number text-white font-medium">
             {show.PRICE}

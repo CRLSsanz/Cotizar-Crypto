@@ -60,7 +60,7 @@ const Navbar = () => {
         </button>
 
         <span className="px-4 text-lg font-extralight text-gray-100">
-          C r y p t o
+          - r c
         </span>
 
         <a
